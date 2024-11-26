@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kansusu.github.io/sitemap.xml
