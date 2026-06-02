@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research &mdash; Yifan Zhu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">Yifan Zhu</a>
+    <a href="index.html">Home</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="service.html">Service</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <p>
+    I study how people and AI agents build, track, and repair common ground
+    in collaborative dialogue &mdash; drawing on <strong>Theory of Mind</strong>,
+    <strong>multimodal perception</strong>, and <strong>LLM alignment</strong>.
+  </p>
+
+  <h2>Primary Work: Friction-Based Alignment &amp; Theory of Mind</h2>
+  <p>
+    My main line of work asks how dialogue agents should be trained to maintain
+    <em>shared belief states</em>, not just plausible responses. I build on
+    <strong>Frictive Policy Optimization (FPO)</strong>, which treats moments of
+    disagreement, hesitation, and repair not as noise to suppress but as a
+    rational control signal &mdash; one that a policy can be trained to read and
+    act on. I extend FPO in two directions: (i) toward an explicit, mechanically
+    computable Theory of Mind, and (ii) toward dialogue where participants hold
+    asymmetric partial information rather than a shared scene.
+  </p>
+
+  <h3>1. Theory-of-Mind-Grounded Friction</h3>
+  <p>
+    I introduced a four-identifier ToM schema that reconstructs first- and
+    second-order belief states at each referring expression. This makes
+    <em>silent divergence</em> &mdash; where both speakers proceed confidently while
+    grounding different referents &mdash; mechanically detectable. Ablating the
+    second-order channel collapses misunderstanding detection from 65% to 26%.
+    The corresponding reward-shaping (FAR) and trust-region (FTR) variants of
+    FPO outperform a DPO baseline on task-grounded F1, calibration, and pairwise
+    LLM-judge preference.
+    <em>(<a href="publications.html#fpo">Mind the Gap</a>, under review EMNLP 2026.)</em>
+  </p>
+
+  <h3>2. From Propositional to Perceptual Asymmetry</h3>
+  <p>
+    Existing FPO instantiations assume a shared perceptual context. In real
+    collaborative tasks &mdash; HCRC MapTask, OneCommon, our DPIP puzzle &mdash; each
+    participant holds a private view, and the same referring expression denotes
+    different entities depending on whose information state grounds it. I
+    generalize the friction functional to a perspective-bound formulation: each
+    participant's $F^{-}$ is evaluated against their own information horizon. A
+    small open-weights model with perspective-bound contradiction detection
+    saturates repair-productive friction recall where GPT-5 under omniscient
+    access does not.
+    <em>(<a href="publications.html#fpo">From Propositional to Perceptual Asymmetry</a>, SIGDIAL 2026.)</em>
+  </p>
+
+  <h3>3. Theory of Mind in Multimodal HCI</h3>
+  <p>
+    Earlier in this line, I argued for applying <em>Simulation Theory of Mind</em>
+    to model beliefs and intentions in multi-party collaborative interaction,
+    yielding the epistemic substrate that the later FPO work operationalizes as
+    a trainable signal.
+    <em>(<a href="publications.html#fpo">Modeling Theory of Mind in Multimodal HCI</a>, HCII 2024.)</em>
+  </p>
+
+  <hr>
+
+  <h2>Common Ground Tracking &amp; Epistemic Modeling</h2>
+  <p>
+    A complementary thread of my work asks how shared belief states can be
+    tracked computationally as dialogue unfolds. I designed the
+    <strong>Distributed Partial Information Puzzle (DPIP)</strong>, a multi-party
+    task in which every participant holds a fully disjoint view of a target
+    structure; benchmarked LLM-based and axiomatic dynamic-epistemic-logic
+    paradigms; authored multimodal annotation guidelines for common-ground and
+    friction labels; and contributed the block-description transfer module to
+    the real-time <strong>TRACE</strong> common-ground demo. The associated
+    <em>Common Ground Tracking</em> system has been the most-cited paper from
+    this line of work.
+    <em>(See <a href="publications.html#cgt">Common Ground Tracking</a> section.)</em>
+  </p>
+
+  <hr>
+
+  <h2>Multimodal Perception &amp; Situational Awareness</h2>
+  <p>
+    To support epistemic modeling, I developed 2D and 3D perception pipelines
+    that extract verbal and non-verbal events &mdash; posture, gesture, gaze, object
+    movement, facial expression &mdash; from audio-video recordings and live streams.
+    These feed into end-to-end situational-awareness systems for collaborative
+    problem solving, integrating multimodal features via late-fusion classifiers.
+    <em>(See <a href="publications.html#multimodal">Multimodal Perception</a> section.)</em>
+  </p>
+
+  <hr>
+
+  <h2>Other Work: Computational Semantics &amp; Cross-Lingual UMR</h2>
+  <p>
+    Earlier in graduate school I worked on Universal Meaning Representation
+    (UMR) annotation for Chinese, identifying language-specific challenges
+    (verb compounds, aspect, anaphora) and proposing compound-annotation
+    solutions adopted in community guidelines.
+    <em>(See <a href="publications.html#umr">Computational Semantics</a> section.)</em>
+  </p>
+
+  <footer>
+    &copy; 2026 Yifan Zhu
+  </footer>
+</div>
+
+</body>
+</html>
